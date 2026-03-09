@@ -1,0 +1,24 @@
+{
+  "name": "tree-sitter-silverstripe",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for SilverStripe templates",
+  "main": "bindings/node",
+  "keywords": ["tree-sitter", "silverstripe", "parser"],
+  "license": "MIT",
+  "dependencies": {
+    "node-addon-api": "^8.4.0",
+    "node-gyp-build": "^4.8.4"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.25.0",
+    "tree-sitter-html": "^0.23.2"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.25.0"
+  },
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp build",
+    "test": "tree-sitter test",
+    "parse": "tree-sitter parse"
+  }
+}

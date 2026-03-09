@@ -1,0 +1,11 @@
+{
+  "grammars": [
+    {
+      "name": "silverstripe",
+      "camelCase": false,
+      "scope": "text.html.ss",
+      "file-types": ["ss"],
+      "injection-regex": "^(ss|silverstripe)$"
+    }
+  ]
+}
