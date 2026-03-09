@@ -62,8 +62,8 @@
 
 ; ---- Variables ----
 
-(ss_variable) @variable.special
-(ss_variable_closed) @variable.special
+(ss_variable) @constant
+(ss_variable_closed) @constant
 
 ; ---- Operators ----
 

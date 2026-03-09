@@ -29,8 +29,7 @@ Closed variable
 ---
 
 (document
-  (ss_variable_closed
-    (ss_variable_chain)))
+  (ss_variable_closed))
 
 ====================
 Variable in HTML element
@@ -60,8 +59,7 @@ Closed variable in HTML
   (element
     (start_tag
       (tag_name))
-    (ss_variable_closed
-      (ss_variable_chain))
+    (ss_variable_closed)
     (end_tag
       (tag_name))))
 
@@ -100,8 +98,7 @@ Closed variable in HTML attribute
       (attribute
         (attribute_name)
         (quoted_attribute_value
-          (ss_variable_closed
-            (ss_variable_chain)))))
+          (ss_variable_closed))))
     (text)
     (end_tag
       (tag_name))))
@@ -126,3 +123,26 @@ Mixed text and variable in attribute
     (text)
     (end_tag
       (tag_name))))
+
+====================
+Nested variable calls in include argument
+====================
+
+<% include MyTemplate Class=$If($Up.Page.Exists, $IfIs($Pos, 2, 'big')) %>
+
+---
+
+(document
+  (ss_include
+    (ss_delimiter_start)
+    template: (ss_template_name)
+    (ss_include_arguments
+      (ss_include_argument
+        name: (ss_identifier)
+        value: (ss_variable
+          (ss_variable)
+          (ss_variable
+            (ss_variable)
+            (ss_number)
+            (ss_string)))))
+    (ss_delimiter_end)))
