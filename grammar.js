@@ -275,6 +275,21 @@ module.exports = grammar(htmlGrammar, {
 
     ss_number: _ => /\d+/,
 
+    // Override quoted_attribute_value to support SS variables inside HTML attributes
+    // e.g. <a href="$Link" title="{$Title}">
+    quoted_attribute_value: $ => choice(
+      seq("'", repeat(choice(
+        $.ss_variable,
+        $.ss_variable_closed,
+        alias(/[^'$\{]+|\{/, $.attribute_value),
+      )), "'"),
+      seq('"', repeat(choice(
+        $.ss_variable,
+        $.ss_variable_closed,
+        alias(/[^"$\{]+|\{/, $.attribute_value),
+      )), '"'),
+    ),
+
     // Override HTML text to exclude $ and {$ which are SilverStripe variables
     text: _ => /[^<>&\s$\{]([^<>&$\{]*[^<>&\s$\{])?/,
   },

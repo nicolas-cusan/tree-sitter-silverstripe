@@ -64,3 +64,65 @@ Closed variable in HTML
       (ss_variable_chain))
     (end_tag
       (tag_name))))
+
+====================
+Variable in HTML attribute
+====================
+
+<a href="$Link">text</a>
+
+---
+
+(document
+  (element
+    (start_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (ss_variable))))
+    (text)
+    (end_tag
+      (tag_name))))
+
+====================
+Closed variable in HTML attribute
+====================
+
+<div data-title="{$Title}">text</div>
+
+---
+
+(document
+  (element
+    (start_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (ss_variable_closed
+            (ss_variable_chain)))))
+    (text)
+    (end_tag
+      (tag_name))))
+
+====================
+Mixed text and variable in attribute
+====================
+
+<div class="page-$Type">text</div>
+
+---
+
+(document
+  (element
+    (start_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value)
+          (ss_variable))))
+    (text)
+    (end_tag
+      (tag_name))))

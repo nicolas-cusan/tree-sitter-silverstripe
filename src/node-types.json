@@ -249,11 +249,19 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
           "type": "attribute_value",
+          "named": true
+        },
+        {
+          "type": "ss_variable",
+          "named": true
+        },
+        {
+          "type": "ss_variable_closed",
           "named": true
         }
       ]
