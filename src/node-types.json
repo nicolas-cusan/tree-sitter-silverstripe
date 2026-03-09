@@ -304,16 +304,38 @@
   {
     "type": "ss_cached_close",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "ss_cached_open",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        },
         {
           "type": "ss_expression",
           "named": true
@@ -421,11 +443,19 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
         {
           "type": "ss_comment_content",
+          "named": true
+        },
+        {
+          "type": "ss_comment_end",
+          "named": true
+        },
+        {
+          "type": "ss_comment_start",
           "named": true
         }
       ]
@@ -434,16 +464,38 @@
   {
     "type": "ss_control_close",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "ss_control_open",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        },
         {
           "type": "ss_expression",
           "named": true
@@ -552,7 +604,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "doctype",
@@ -584,6 +636,14 @@
         },
         {
           "type": "ss_control_statement",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
           "named": true
         },
         {
@@ -671,6 +731,14 @@
         },
         {
           "type": "ss_control_statement",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
           "named": true
         },
         {
@@ -762,16 +830,38 @@
   {
     "type": "ss_if_close",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "ss_if_open",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        },
         {
           "type": "ss_expression",
           "named": true
@@ -898,9 +988,17 @@
       }
     },
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        },
         {
           "type": "ss_include_arguments",
           "named": true
@@ -956,16 +1054,38 @@
   {
     "type": "ss_loop_close",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "ss_loop_open",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        },
         {
           "type": "ss_expression",
           "named": true
@@ -1093,9 +1213,17 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        },
         {
           "type": "ss_require_call",
           "named": true
@@ -1155,9 +1283,17 @@
       }
     },
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        },
         {
           "type": "ss_translation_args",
           "named": true
@@ -1206,12 +1342,40 @@
   {
     "type": "ss_uncached_close",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "ss_uncached_open",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "ss_uncached_statement",
@@ -1326,16 +1490,38 @@
   {
     "type": "ss_with_close",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "ss_with_open",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        },
         {
           "type": "ss_expression",
           "named": true
@@ -1631,6 +1817,22 @@
   },
   {
     "type": "ss_comment_content",
+    "named": true
+  },
+  {
+    "type": "ss_comment_end",
+    "named": true
+  },
+  {
+    "type": "ss_comment_start",
+    "named": true
+  },
+  {
+    "type": "ss_delimiter_end",
+    "named": true
+  },
+  {
+    "type": "ss_delimiter_start",
     "named": true
   },
   {

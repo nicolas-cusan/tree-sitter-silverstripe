@@ -504,7 +504,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_comment_start"
+          "name": "ss_comment_start"
         },
         {
           "type": "CHOICE",
@@ -520,7 +520,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_comment_end"
+          "name": "ss_comment_end"
         }
       ]
     },
@@ -572,7 +572,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -584,7 +584,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -593,7 +593,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -605,7 +605,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         },
         {
           "type": "REPEAT",
@@ -621,7 +621,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -629,7 +629,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         },
         {
           "type": "REPEAT",
@@ -645,7 +645,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -653,7 +653,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -682,7 +682,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -694,7 +694,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -703,7 +703,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -711,7 +711,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -740,7 +740,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -752,7 +752,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -761,7 +761,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -769,7 +769,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -798,7 +798,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -810,7 +810,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -819,7 +819,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -827,7 +827,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -856,7 +856,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -876,7 +876,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -885,7 +885,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -893,7 +893,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -922,7 +922,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -930,7 +930,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -939,7 +939,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -947,7 +947,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -956,7 +956,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -984,7 +984,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -1038,7 +1038,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "STRING",
@@ -1050,7 +1050,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -1088,7 +1088,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_start"
+          "name": "ss_delimiter_start"
         },
         {
           "type": "TOKEN",
@@ -1139,7 +1139,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_ss_delimiter_end"
+          "name": "ss_delimiter_end"
         }
       ]
     },
@@ -1411,19 +1411,19 @@
     },
     {
       "type": "SYMBOL",
-      "name": "_ss_delimiter_start"
+      "name": "ss_delimiter_start"
     },
     {
       "type": "SYMBOL",
-      "name": "_ss_delimiter_end"
+      "name": "ss_delimiter_end"
     },
     {
       "type": "SYMBOL",
-      "name": "_ss_comment_start"
+      "name": "ss_comment_start"
     },
     {
       "type": "SYMBOL",
-      "name": "_ss_comment_end"
+      "name": "ss_comment_end"
     }
   ],
   "inline": [],

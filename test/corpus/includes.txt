@@ -8,7 +8,9 @@ Simple include
 
 (document
   (ss_include
-    template: (ss_template_name)))
+    (ss_delimiter_start)
+    template: (ss_template_name)
+    (ss_delimiter_end)))
 
 ====================
 Namespaced include
@@ -20,7 +22,9 @@ Namespaced include
 
 (document
   (ss_include
-    template: (ss_template_name)))
+    (ss_delimiter_start)
+    template: (ss_template_name)
+    (ss_delimiter_end)))
 
 ====================
 Include with arguments
@@ -32,11 +36,13 @@ Include with arguments
 
 (document
   (ss_include
+    (ss_delimiter_start)
     template: (ss_template_name)
     (ss_include_arguments
       (ss_include_argument
         name: (ss_identifier)
-        value: (ss_string)))))
+        value: (ss_string)))
+    (ss_delimiter_end)))
 
 ====================
 Require themedCSS
@@ -48,6 +54,8 @@ Require themedCSS
 
 (document
   (ss_require
+    (ss_delimiter_start)
     (ss_require_call
       method: (ss_identifier)
-      path: (ss_string))))
+      path: (ss_string))
+    (ss_delimiter_end)))

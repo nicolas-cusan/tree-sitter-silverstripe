@@ -11,15 +11,19 @@ If statement
 (document
   (ss_if_statement
     (ss_if_open
+      (ss_delimiter_start)
       (ss_expression
-        (ss_variable)))
+        (ss_variable))
+      (ss_delimiter_end))
     (element
       (start_tag
         (tag_name))
       (ss_variable)
       (end_tag
         (tag_name)))
-    (ss_if_close)))
+    (ss_if_close
+      (ss_delimiter_start)
+      (ss_delimiter_end))))
 
 ====================
 If-else statement
@@ -36,12 +40,18 @@ If-else statement
 (document
   (ss_if_statement
     (ss_if_open
+      (ss_delimiter_start)
       (ss_expression
-        (ss_variable)))
+        (ss_variable))
+      (ss_delimiter_end))
     (text)
     (ss_else_clause
+      (ss_delimiter_start)
+      (ss_delimiter_end)
       (text))
-    (ss_if_close)))
+    (ss_if_close
+      (ss_delimiter_start)
+      (ss_delimiter_end))))
 
 ====================
 If-else_if-else statement
@@ -60,16 +70,24 @@ If-else_if-else statement
 (document
   (ss_if_statement
     (ss_if_open
-      (ss_expression
-        (ss_variable)))
-    (text)
-    (ss_else_if_clause
+      (ss_delimiter_start)
       (ss_expression
         (ss_variable))
+      (ss_delimiter_end))
+    (text)
+    (ss_else_if_clause
+      (ss_delimiter_start)
+      (ss_expression
+        (ss_variable))
+      (ss_delimiter_end)
       (text))
     (ss_else_clause
+      (ss_delimiter_start)
+      (ss_delimiter_end)
       (text))
-    (ss_if_close)))
+    (ss_if_close
+      (ss_delimiter_start)
+      (ss_delimiter_end))))
 
 ====================
 Loop statement
@@ -84,10 +102,14 @@ Loop statement
 (document
   (ss_loop_statement
     (ss_loop_open
+      (ss_delimiter_start)
       (ss_expression
-        (ss_variable)))
+        (ss_variable))
+      (ss_delimiter_end))
     (ss_variable)
-    (ss_loop_close)))
+    (ss_loop_close
+      (ss_delimiter_start)
+      (ss_delimiter_end))))
 
 ====================
 With statement
@@ -102,10 +124,14 @@ With statement
 (document
   (ss_with_statement
     (ss_with_open
+      (ss_delimiter_start)
       (ss_expression
-        (ss_variable)))
+        (ss_variable))
+      (ss_delimiter_end))
     (ss_variable)
-    (ss_with_close)))
+    (ss_with_close
+      (ss_delimiter_start)
+      (ss_delimiter_end))))
 
 ====================
 Control statement
@@ -120,10 +146,14 @@ Control statement
 (document
   (ss_control_statement
     (ss_control_open
+      (ss_delimiter_start)
       (ss_expression
-        (ss_variable)))
+        (ss_variable))
+      (ss_delimiter_end))
     (ss_variable)
-    (ss_control_close)))
+    (ss_control_close
+      (ss_delimiter_start)
+      (ss_delimiter_end))))
 
 ====================
 Cached statement with key
@@ -138,10 +168,14 @@ Cached statement with key
 (document
   (ss_cached_statement
     (ss_cached_open
+      (ss_delimiter_start)
       (ss_expression
-        (ss_variable)))
+        (ss_variable))
+      (ss_delimiter_end))
     (text)
-    (ss_cached_close)))
+    (ss_cached_close
+      (ss_delimiter_start)
+      (ss_delimiter_end))))
 
 ====================
 Uncached statement
@@ -155,6 +189,10 @@ Uncached statement
 
 (document
   (ss_uncached_statement
-    (ss_uncached_open)
+    (ss_uncached_open
+      (ss_delimiter_start)
+      (ss_delimiter_end))
     (text)
-    (ss_uncached_close)))
+    (ss_uncached_close
+      (ss_delimiter_start)
+      (ss_delimiter_end))))

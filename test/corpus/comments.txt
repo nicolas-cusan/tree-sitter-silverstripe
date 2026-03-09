@@ -8,7 +8,9 @@ Simple comment
 
 (document
   (ss_comment
-    (ss_comment_content)))
+    (ss_comment_start)
+    (ss_comment_content)
+    (ss_comment_end)))
 
 ====================
 Multiline comment
@@ -23,7 +25,9 @@ Multiline comment
 
 (document
   (ss_comment
-    (ss_comment_content)))
+    (ss_comment_start)
+    (ss_comment_content)
+    (ss_comment_end)))
 
 ====================
 Empty comment
@@ -34,4 +38,6 @@ Empty comment
 ---
 
 (document
-  (ss_comment))
+  (ss_comment
+    (ss_comment_start)
+    (ss_comment_end)))

@@ -7,10 +7,10 @@ module.exports = grammar(htmlGrammar, {
   name: 'silverstripe',
 
   externals: ($, previous) => previous.concat([
-    $._ss_delimiter_start,    // <%
-    $._ss_delimiter_end,      // %>
-    $._ss_comment_start,      // <%--
-    $._ss_comment_end,        // --%>
+    $.ss_delimiter_start,    // <%
+    $.ss_delimiter_end,      // %>
+    $.ss_comment_start,      // <%--
+    $.ss_comment_end,        // --%>
   ]),
 
   conflicts: ($, previous) => previous.concat([
@@ -38,9 +38,9 @@ module.exports = grammar(htmlGrammar, {
 
     // ---- Comments ----
     ss_comment: $ => seq(
-      $._ss_comment_start,
+      $.ss_comment_start,
       optional($.ss_comment_content),
-      $._ss_comment_end,
+      $.ss_comment_end,
     ),
 
     ss_comment_content: _ => /([^-]|-[^-]|--[^%]|--%-[^>])*/,
@@ -56,31 +56,31 @@ module.exports = grammar(htmlGrammar, {
     ),
 
     ss_if_open: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'if',
       $.ss_expression,
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_else_if_clause: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'else_if',
       $.ss_expression,
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
       repeat($._node),
     ),
 
     ss_else_clause: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'else',
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
       repeat($._node),
     ),
 
     ss_if_close: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'end_if',
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_loop_statement: $ => seq(
@@ -90,16 +90,16 @@ module.exports = grammar(htmlGrammar, {
     ),
 
     ss_loop_open: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'loop',
       $.ss_expression,
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_loop_close: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'end_loop',
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_with_statement: $ => seq(
@@ -109,16 +109,16 @@ module.exports = grammar(htmlGrammar, {
     ),
 
     ss_with_open: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'with',
       $.ss_expression,
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_with_close: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'end_with',
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_control_statement: $ => seq(
@@ -128,16 +128,16 @@ module.exports = grammar(htmlGrammar, {
     ),
 
     ss_control_open: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'control',
       $.ss_expression,
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_control_close: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'end_control',
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_cached_statement: $ => seq(
@@ -147,16 +147,16 @@ module.exports = grammar(htmlGrammar, {
     ),
 
     ss_cached_open: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'cached',
       optional($.ss_expression),
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_cached_close: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'end_cached',
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_uncached_statement: $ => seq(
@@ -166,24 +166,24 @@ module.exports = grammar(htmlGrammar, {
     ),
 
     ss_uncached_open: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'uncached',
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_uncached_close: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'end_uncached',
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     // ---- Include ----
     ss_include: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'include',
       field('template', $.ss_template_name),
       optional($.ss_include_arguments),
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_template_name: _ => /[\w\/\\]+/,
@@ -198,10 +198,10 @@ module.exports = grammar(htmlGrammar, {
 
     // ---- Require ----
     ss_require: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       'require',
       $.ss_require_call,
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_require_call: $ => seq(
@@ -213,12 +213,12 @@ module.exports = grammar(htmlGrammar, {
 
     // ---- Translation ----
     ss_translation: $ => seq(
-      $._ss_delimiter_start,
+      $.ss_delimiter_start,
       token(prec(1, 't')),
       field('key', $.ss_translation_key),
       optional(field('default', $.ss_string)),
       optional($.ss_translation_args),
-      $._ss_delimiter_end,
+      $.ss_delimiter_end,
     ),
 
     ss_translation_key: _ => /[\w.]+/,

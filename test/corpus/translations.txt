@@ -8,8 +8,10 @@ Simple translation
 
 (document
   (ss_translation
+    (ss_delimiter_start)
     key: (ss_translation_key)
-    default: (ss_string)))
+    default: (ss_string)
+    (ss_delimiter_end)))
 
 ====================
 Translation without default
@@ -21,4 +23,6 @@ Translation without default
 
 (document
   (ss_translation
-    key: (ss_translation_key)))
+    (ss_delimiter_start)
+    key: (ss_translation_key)
+    (ss_delimiter_end)))
