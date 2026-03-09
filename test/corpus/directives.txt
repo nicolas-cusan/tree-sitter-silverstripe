@@ -178,6 +178,35 @@ Cached statement with key
       (ss_delimiter_end))))
 
 ====================
+If statement inside HTML tag attributes
+====================
+
+<div <% if $Show %> class="visible" <% end_if %>>text</div>
+
+---
+
+(document
+  (element
+    (start_tag
+      (tag_name)
+      (ss_attr_if_statement
+        (ss_if_open
+          (ss_delimiter_start)
+          (ss_expression
+            (ss_variable))
+          (ss_delimiter_end))
+        (attribute
+          (attribute_name)
+          (quoted_attribute_value
+            (attribute_value)))
+        (ss_if_close
+          (ss_delimiter_start)
+          (ss_delimiter_end))))
+    (text)
+    (end_tag
+      (tag_name))))
+
+====================
 Uncached statement
 ====================
 

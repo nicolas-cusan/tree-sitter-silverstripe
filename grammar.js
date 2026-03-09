@@ -16,6 +16,8 @@ module.exports = grammar(htmlGrammar, {
   conflicts: ($, previous) => previous.concat([
     [$.ss_else_if_clause],
     [$.ss_else_clause],
+    [$.ss_attr_else_if_clause],
+    [$.ss_attr_else_clause],
   ]),
 
   rules: {
@@ -34,6 +36,51 @@ module.exports = grammar(htmlGrammar, {
       $.ss_translation,
       $.ss_variable_closed,
       $.ss_variable,
+    ),
+
+    // ---- Override HTML start_tag to allow SS constructs between attributes ----
+    // e.g. <div <% if $Cond %> class="foo" <% end_if %>>
+    start_tag: $ => seq(
+      '<',
+      alias($._start_tag_name, $.tag_name),
+      repeat(choice($.attribute, $._ss_attr_construct)),
+      '>',
+    ),
+
+    self_closing_tag: $ => seq(
+      '<',
+      alias($._start_tag_name, $.tag_name),
+      repeat(choice($.attribute, $._ss_attr_construct)),
+      '/>',
+    ),
+
+    // SS constructs allowed inside HTML start tags (wrap attributes, not content)
+    _ss_attr_construct: $ => choice(
+      $.ss_attr_if_statement,
+      $.ss_comment,
+    ),
+
+    ss_attr_if_statement: $ => seq(
+      $.ss_if_open,
+      repeat(choice($.attribute, $._ss_attr_construct)),
+      repeat($.ss_attr_else_if_clause),
+      optional($.ss_attr_else_clause),
+      $.ss_if_close,
+    ),
+
+    ss_attr_else_if_clause: $ => seq(
+      $.ss_delimiter_start,
+      'else_if',
+      $.ss_expression,
+      $.ss_delimiter_end,
+      repeat(choice($.attribute, $._ss_attr_construct)),
+    ),
+
+    ss_attr_else_clause: $ => seq(
+      $.ss_delimiter_start,
+      'else',
+      $.ss_delimiter_end,
+      repeat(choice($.attribute, $._ss_attr_construct)),
     ),
 
     // ---- Comments ----
@@ -188,12 +235,15 @@ module.exports = grammar(htmlGrammar, {
 
     ss_template_name: _ => /[\w\/\\]+/,
 
-    ss_include_arguments: $ => repeat1($.ss_include_argument),
+    ss_include_arguments: $ => seq(
+      $.ss_include_argument,
+      repeat(seq(optional(','), $.ss_include_argument)),
+    ),
 
     ss_include_argument: $ => seq(
       field('name', $.ss_identifier),
       '=',
-      field('value', choice($.ss_string, $.ss_variable)),
+      field('value', choice($.ss_string, $.ss_variable, $.ss_number)),
     ),
 
     // ---- Require ----

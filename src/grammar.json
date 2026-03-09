@@ -243,8 +243,17 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "attribute"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "attribute"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_ss_attr_construct"
+              }
+            ]
           }
         },
         {
@@ -330,8 +339,17 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "attribute"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "attribute"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_ss_attr_construct"
+              }
+            ]
           }
         },
         {
@@ -514,6 +532,137 @@
     "text": {
       "type": "PATTERN",
       "value": "[^<>&\\s$\\{]([^<>&$\\{]*[^<>&\\s$\\{])?"
+    },
+    "_ss_attr_construct": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "ss_attr_if_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ss_comment"
+        }
+      ]
+    },
+    "ss_attr_if_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "ss_if_open"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "attribute"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_ss_attr_construct"
+              }
+            ]
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "ss_attr_else_if_clause"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "ss_attr_else_clause"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ss_if_close"
+        }
+      ]
+    },
+    "ss_attr_else_if_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "ss_delimiter_start"
+        },
+        {
+          "type": "STRING",
+          "value": "else_if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ss_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ss_delimiter_end"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "attribute"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_ss_attr_construct"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ss_attr_else_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "ss_delimiter_start"
+        },
+        {
+          "type": "STRING",
+          "value": "else"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ss_delimiter_end"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "attribute"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_ss_attr_construct"
+              }
+            ]
+          }
+        }
+      ]
     },
     "ss_comment": {
       "type": "SEQ",
@@ -1009,11 +1158,37 @@
       "value": "[\\w\\/\\\\]+"
     },
     "ss_include_arguments": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "SYMBOL",
-        "name": "ss_include_argument"
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "ss_include_argument"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "ss_include_argument"
+              }
+            ]
+          }
+        }
+      ]
     },
     "ss_include_argument": {
       "type": "SEQ",
@@ -1043,6 +1218,10 @@
               {
                 "type": "SYMBOL",
                 "name": "ss_variable"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "ss_number"
               }
             ]
           }
@@ -1385,6 +1564,12 @@
     ],
     [
       "ss_else_clause"
+    ],
+    [
+      "ss_attr_else_if_clause"
+    ],
+    [
+      "ss_attr_else_clause"
     ]
   ],
   "precedences": [],

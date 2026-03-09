@@ -45,6 +45,48 @@ Include with arguments
     (ss_delimiter_end)))
 
 ====================
+Include with comma-separated arguments
+====================
+
+<% include Icon Type='arr-down', Class='stroke-default' %>
+
+---
+
+(document
+  (ss_include
+    (ss_delimiter_start)
+    template: (ss_template_name)
+    (ss_include_arguments
+      (ss_include_argument
+        name: (ss_identifier)
+        value: (ss_string))
+      (ss_include_argument
+        name: (ss_identifier)
+        value: (ss_string)))
+    (ss_delimiter_end)))
+
+====================
+Include with numeric argument
+====================
+
+<% include Heading Custom=2, Class='title' %>
+
+---
+
+(document
+  (ss_include
+    (ss_delimiter_start)
+    template: (ss_template_name)
+    (ss_include_arguments
+      (ss_include_argument
+        name: (ss_identifier)
+        value: (ss_number))
+      (ss_include_argument
+        name: (ss_identifier)
+        value: (ss_string)))
+    (ss_delimiter_end)))
+
+====================
 Require themedCSS
 ====================
 

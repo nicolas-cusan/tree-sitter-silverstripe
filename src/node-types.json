@@ -303,7 +303,120 @@
           "named": true
         },
         {
+          "type": "ss_attr_if_statement",
+          "named": true
+        },
+        {
+          "type": "ss_comment",
+          "named": true
+        },
+        {
           "type": "tag_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ss_attr_else_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "ss_attr_if_statement",
+          "named": true
+        },
+        {
+          "type": "ss_comment",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ss_attr_else_if_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "ss_attr_if_statement",
+          "named": true
+        },
+        {
+          "type": "ss_comment",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_end",
+          "named": true
+        },
+        {
+          "type": "ss_delimiter_start",
+          "named": true
+        },
+        {
+          "type": "ss_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ss_attr_if_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "ss_attr_else_clause",
+          "named": true
+        },
+        {
+          "type": "ss_attr_else_if_clause",
+          "named": true
+        },
+        {
+          "type": "ss_attr_if_statement",
+          "named": true
+        },
+        {
+          "type": "ss_comment",
+          "named": true
+        },
+        {
+          "type": "ss_if_close",
+          "named": true
+        },
+        {
+          "type": "ss_if_open",
           "named": true
         }
       ]
@@ -1033,6 +1146,10 @@
         "required": true,
         "types": [
           {
+            "type": "ss_number",
+            "named": true
+          },
+          {
             "type": "ss_string",
             "named": true
           },
@@ -1645,6 +1762,14 @@
           "named": true
         },
         {
+          "type": "ss_attr_if_statement",
+          "named": true
+        },
+        {
+          "type": "ss_comment",
+          "named": true
+        },
+        {
           "type": "tag_name",
           "named": true
         }
@@ -1700,6 +1825,10 @@
   },
   {
     "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
     "named": false
   },
   {

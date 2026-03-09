@@ -9,22 +9,24 @@
 
 ["<" ">" "</" "/>"] @punctuation.bracket
 
-; ---- SilverStripe comments ----
+; ---- SilverStripe comments (<%-- --%> colored as comment, not punctuation) ----
 
-(ss_comment_start) @punctuation.special
-(ss_comment_end) @punctuation.special
+(ss_comment_start) @comment
+(ss_comment_end) @comment
 (ss_comment_content) @comment.doc
 
-; ---- SilverStripe delimiters ----
+; ---- SilverStripe delimiters (<% %>) ----
 
 (ss_delimiter_start) @punctuation.special
 (ss_delimiter_end) @punctuation.special
 
-; ---- Keywords - conditionals ----
+; ---- Keywords - conditionals (including attribute-level) ----
 
 (ss_if_open "if" @keyword)
 (ss_else_if_clause "else_if" @keyword)
 (ss_else_clause "else" @keyword)
+(ss_attr_else_if_clause "else_if" @keyword)
+(ss_attr_else_clause "else" @keyword)
 (ss_if_close "end_if" @keyword)
 
 ; ---- Keywords - loops ----
