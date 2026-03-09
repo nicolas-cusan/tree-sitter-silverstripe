@@ -1,0 +1,66 @@
+====================
+Simple variable
+====================
+
+$Title
+
+---
+
+(document
+  (ss_variable))
+
+====================
+Chained variable
+====================
+
+$Obj.Property.Method()
+
+---
+
+(document
+  (ss_variable))
+
+====================
+Closed variable
+====================
+
+{$Title}
+
+---
+
+(document
+  (ss_variable_closed
+    (ss_variable_chain)))
+
+====================
+Variable in HTML element
+====================
+
+<h1>$Title</h1>
+
+---
+
+(document
+  (element
+    (start_tag
+      (tag_name))
+    (ss_variable)
+    (end_tag
+      (tag_name))))
+
+====================
+Closed variable in HTML
+====================
+
+<p>{$Content}</p>
+
+---
+
+(document
+  (element
+    (start_tag
+      (tag_name))
+    (ss_variable_closed
+      (ss_variable_chain))
+    (end_tag
+      (tag_name))))

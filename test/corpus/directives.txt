@@ -1,0 +1,160 @@
+====================
+If statement
+====================
+
+<% if $ShowTitle %>
+  <h1>$Title</h1>
+<% end_if %>
+
+---
+
+(document
+  (ss_if_statement
+    (ss_if_open
+      (ss_expression
+        (ss_variable)))
+    (element
+      (start_tag
+        (tag_name))
+      (ss_variable)
+      (end_tag
+        (tag_name)))
+    (ss_if_close)))
+
+====================
+If-else statement
+====================
+
+<% if $IsAdmin %>
+  Admin
+<% else %>
+  User
+<% end_if %>
+
+---
+
+(document
+  (ss_if_statement
+    (ss_if_open
+      (ss_expression
+        (ss_variable)))
+    (text)
+    (ss_else_clause
+      (text))
+    (ss_if_close)))
+
+====================
+If-else_if-else statement
+====================
+
+<% if $A %>
+  A
+<% else_if $B %>
+  B
+<% else %>
+  C
+<% end_if %>
+
+---
+
+(document
+  (ss_if_statement
+    (ss_if_open
+      (ss_expression
+        (ss_variable)))
+    (text)
+    (ss_else_if_clause
+      (ss_expression
+        (ss_variable))
+      (text))
+    (ss_else_clause
+      (text))
+    (ss_if_close)))
+
+====================
+Loop statement
+====================
+
+<% loop $Items %>
+  $Title
+<% end_loop %>
+
+---
+
+(document
+  (ss_loop_statement
+    (ss_loop_open
+      (ss_expression
+        (ss_variable)))
+    (ss_variable)
+    (ss_loop_close)))
+
+====================
+With statement
+====================
+
+<% with $Page %>
+  $Content
+<% end_with %>
+
+---
+
+(document
+  (ss_with_statement
+    (ss_with_open
+      (ss_expression
+        (ss_variable)))
+    (ss_variable)
+    (ss_with_close)))
+
+====================
+Control statement
+====================
+
+<% control $Items %>
+  $Title
+<% end_control %>
+
+---
+
+(document
+  (ss_control_statement
+    (ss_control_open
+      (ss_expression
+        (ss_variable)))
+    (ss_variable)
+    (ss_control_close)))
+
+====================
+Cached statement with key
+====================
+
+<% cached $Key %>
+  content
+<% end_cached %>
+
+---
+
+(document
+  (ss_cached_statement
+    (ss_cached_open
+      (ss_expression
+        (ss_variable)))
+    (text)
+    (ss_cached_close)))
+
+====================
+Uncached statement
+====================
+
+<% uncached %>
+  content
+<% end_uncached %>
+
+---
+
+(document
+  (ss_uncached_statement
+    (ss_uncached_open)
+    (text)
+    (ss_uncached_close)))

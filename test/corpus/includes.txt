@@ -1,0 +1,53 @@
+====================
+Simple include
+====================
+
+<% include Header %>
+
+---
+
+(document
+  (ss_include
+    template: (ss_template_name)))
+
+====================
+Namespaced include
+====================
+
+<% include SilverStripe/Blog/Pagination %>
+
+---
+
+(document
+  (ss_include
+    template: (ss_template_name)))
+
+====================
+Include with arguments
+====================
+
+<% include Header Title="My Page" %>
+
+---
+
+(document
+  (ss_include
+    template: (ss_template_name)
+    (ss_include_arguments
+      (ss_include_argument
+        name: (ss_identifier)
+        value: (ss_string)))))
+
+====================
+Require themedCSS
+====================
+
+<% require themedCSS("path/to/file") %>
+
+---
+
+(document
+  (ss_require
+    (ss_require_call
+      method: (ss_identifier)
+      path: (ss_string))))

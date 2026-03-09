@@ -1,0 +1,37 @@
+====================
+Simple comment
+====================
+
+<%-- This is a comment --%>
+
+---
+
+(document
+  (ss_comment
+    (ss_comment_content)))
+
+====================
+Multiline comment
+====================
+
+<%--
+  Multi-line
+  comment content
+--%>
+
+---
+
+(document
+  (ss_comment
+    (ss_comment_content)))
+
+====================
+Empty comment
+====================
+
+<%----%>
+
+---
+
+(document
+  (ss_comment))

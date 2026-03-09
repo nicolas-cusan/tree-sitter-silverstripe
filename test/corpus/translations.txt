@@ -1,0 +1,24 @@
+====================
+Simple translation
+====================
+
+<%t MyNamespace.Key "Default text" %>
+
+---
+
+(document
+  (ss_translation
+    key: (ss_translation_key)
+    default: (ss_string)))
+
+====================
+Translation without default
+====================
+
+<%t MyNamespace.Key %>
+
+---
+
+(document
+  (ss_translation
+    key: (ss_translation_key)))
