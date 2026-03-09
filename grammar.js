@@ -243,7 +243,11 @@ module.exports = grammar(htmlGrammar, {
     ss_include_argument: $ => seq(
       field('name', $.ss_identifier),
       '=',
-      field('value', choice($.ss_string, $.ss_variable, $.ss_number)),
+      field('value', choice(
+        $.ss_string,
+        alias($._ss_arg_variable, $.ss_variable),
+        $.ss_number,
+      )),
     ),
 
     // ---- Require ----
@@ -283,18 +287,45 @@ module.exports = grammar(htmlGrammar, {
 
     // ---- Variables ----
 
-    // {$Var.Method} style
+    // Greedy token for content and attribute contexts (lexer-level, beats text rule)
+    // Handles: $Var, $Obj.Prop, $Obj.Method(), $If(args), $Obj.Method(args).Chain
+    ss_variable: _ => token(prec(1, /\$\w+(\([^)]*\))?(\.\w+(\([^)]*\))?)*/ )),
+
+    // {$Var.Method} style — parser rule (safe from text since {$ is unique prefix)
     ss_variable_closed: $ => seq(
       '{$',
-      $.ss_variable_chain,
+      $._ss_var_path,
       '}',
     ),
 
-    // $Var.Method style
-    ss_variable: _ => token(prec(1, /\$[\w]+(\.\w+(\([^)]*\))?)*/)),
+    // Recursive variable for include/call args (supports nested calls like $If($IfIs(...)))
+    _ss_arg_variable: $ => prec(1, seq(
+      '$',
+      $._ss_var_path,
+    )),
 
-    // Chain of property/method accesses used inside {$ }
-    ss_variable_chain: _ => /[\w]+(\.\w+(\([^)]*\))?)*/,
+    // Shared path for recursive rules: member.member(args).member
+    _ss_var_path: $ => prec.right(seq(
+      $._ss_var_member,
+      repeat(seq('.', $._ss_var_member)),
+    )),
+
+    _ss_var_member: $ => prec.right(seq(
+      /[\w]+/,
+      optional(seq('(', optional($._ss_call_args), ')')),
+    )),
+
+    _ss_call_args: $ => seq(
+      $._ss_call_arg,
+      repeat(seq(',', $._ss_call_arg)),
+    ),
+
+    _ss_call_arg: $ => choice(
+      alias($._ss_arg_variable, $.ss_variable),
+      $.ss_variable_closed,
+      $.ss_string,
+      $.ss_number,
+    ),
 
     // ---- Expressions (used in if, loop, with, etc.) ----
     ss_expression: $ => repeat1(
